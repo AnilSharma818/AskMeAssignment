@@ -1,0 +1,93 @@
+#chk{
+   display: block;
+   color:#676a74;
+   text-decoration:none;
+   padding: 1.5em inherit;
+    -webkit-transition: all 300ms ease-out;
+       -moz-transition: all 300ms ease-out;
+        -ms-transition: all 300ms ease-out;
+         -o-transition: all 300ms ease-out;
+            transition: all 300ms ease-out; 
+}
+
+#chk span{
+    float:left;
+    width:11px;
+    height:11px;
+    margin-right:15px;
+    margin-top:4px;
+    border: 1px solid #d1d3d7;
+    position:relative;	
+}
+
+#chk:hover{	
+    color:#222;
+    padding: 1.5em inherit;
+    -webkit-transition: all 300ms ease-out;
+       -moz-transition: all 300ms ease-out;
+        -ms-transition: all 300ms ease-out;
+         -o-transition: all 300ms ease-out;
+            transition: all 300ms ease-out;
+}
+
+#chk:hover span{ 	
+    border-color:#a6aab3;	
+}
+
+
+#chk span span{
+    border:none;
+    margin:0;
+    float:none; 
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+#chk .x{
+    display:block;
+    width:0;	 
+    height:2px;
+    background:#5ff7d2;
+    top:6px;
+    left:1px;	
+    -ms-transform: rotate(45deg); 
+    -webkit-transform: rotate(45deg); 
+    transform: rotate(45deg);	
+    -webkit-transition: all 50ms ease-out;
+}
+
+#chk .x.animate{
+    width:4px;
+    -webkit-transition: all 100ms ease-in;
+       -moz-transition: all 100ms ease-in;
+        -ms-transition: all 100ms ease-in;
+         -o-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+}
+
+#chk .y{
+    display:block;
+    width:0px; 
+    height:2px;
+    background:#5ff7d2;
+    top:4px;
+    left:2px;	
+    -ms-transform: rotate(13deg); 
+    -webkit-transform: rotate(135deg); 
+    transform: rotate(135deg);	
+    -webkit-transition: all 50ms ease-out;
+}
+
+#chk .y.animate{
+    width:8px;
+    -webkit-transition: all 100ms ease-out;
+       -moz-transition: all 100ms ease-out;
+        -ms-transition: all 100ms ease-out;
+         -o-transition: all 100ms ease-out;
+            transition: all 100ms ease-out;
+}
+
+.checked span{
+    border-color:#8d939f;
+}

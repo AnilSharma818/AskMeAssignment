@@ -1,0 +1,48 @@
+[{
+    "categories": [
+    {
+        "categoryId": "CAT1",
+        "categoryName": "New Arivals"
+    },
+    {
+        "categoryId": "CAT2",
+        "categoryName": "Accesories"
+    },
+    {
+        "categoryId": "CAT3",
+        "categoryName": "Bags"
+    },
+    {
+        "categoryId": "CAT4",
+        "categoryName": "Dressed"
+    },
+    {
+        "categoryId": "CAT5",
+        "categoryName": "Jackets"
+    },
+    {
+        "categoryId": "CAT6",
+        "categoryName": "Jewelry"
+    },
+    {
+        "categoryId": "CAT7",
+        "categoryName" : "Shoes"
+    },
+    {
+        "categoryId": "CAT8",
+        "categoryName": "Shirts"
+    },
+    {
+        "categoryId": "CAT9",
+        "categoryName": "Sweaters"
+    },
+    {
+        "categoryId": "CAT10",
+        "categoryName": "T-shirts"
+    }
+    ],
+    "sizes": [
+        "XS", "S", "M", "L", "XL", "XXL"
+    ]
+}
+ ] 

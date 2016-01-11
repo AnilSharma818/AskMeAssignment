@@ -1,0 +1,286 @@
+<div class="product">
+    <script>
+        
+        function onSmallMouseOverHandler(e){
+            $(e).parent().css('z-index', "20");
+            $(e).addClass('animate');
+            $(e).find('div.carouselNext, div.carouselPrev').addClass('visible');			
+        }
+        
+        function onSmallMouseOutHandler(e){
+            $(e).removeClass('animate');			
+            $(e).parent().css('z-index', "1");
+            $(e).find('div.carouselNext, div.carouselPrev').removeClass('visible');
+        }
+        
+        function onViewGalleryHandler(e){
+            var el = $(e).parent().parent();
+            if($(el).hasClass('visible')){
+                $(el).find('div.carouselNext, div.carouselPrev').removeClass('visible');
+            }
+			$(el).find('.make3D').addClass('flip-10');			
+			setTimeout(function(){					
+			$(el).find('.make3D').removeClass('flip-10').addClass('flip90').find('div.shadow').show().fadeTo( 80 , 1, function(){
+					$(el).find('.product-front, .product-front div.shadow').hide();															
+				});
+			}, 50);
+			
+			setTimeout(function(){
+				$(el).find('.make3D').removeClass('flip90').addClass('flip190');
+				$(el).find('.product-back').show().find('div.shadow').show().fadeTo( 90 , 0);
+				setTimeout(function(){				
+					$(el).find('.make3D').removeClass('flip190').addClass('flip180').find('div.shadow').hide();						
+					setTimeout(function(){
+						$(el).find('.make3D').css('transition', '100ms ease-out');			
+						$(el).find('.cx, .cy').addClass('s1');
+						setTimeout(function(){$(el).find('.cx, .cy').addClass('s2');}, 100);
+						setTimeout(function(){$(el).find('.cx, .cy').addClass('s3');}, 200);				
+						$(el).find('div.carouselNext, div.carouselPrev').addClass('visible');				
+					}, 100);
+				}, 100);			
+			}, 150);
+		}
+        
+        function onFlipHandler(e){
+             console.log('gallary  ');
+            var el = $(e).parent().parent();
+            $(el).find('.make3D').removeClass('flip180').addClass('flip190');
+			setTimeout(function(){
+				$(el).find('.make3D').removeClass('flip190').addClass('flip90');
+		
+				$(el).find('.product-back div.shadow').css('opacity', 0).fadeTo( 100 , 1, function(){
+					$(el).find('.product-back, .product-back div.shadow').hide();
+					$(el).find('.product-front, .product-front div.shadow').show();
+				});
+			}, 50);
+			
+			setTimeout(function(){
+				$(el).find('.make3D').removeClass('flip90').addClass('flip-10');
+				$(el).find('.product-front div.shadow').show().fadeTo( 100 , 0);
+				setTimeout(function(){						
+					$(el).find('.product-front div.shadow').hide();
+					$(el).find('.make3D').removeClass('flip-10').css('transition', '100ms ease-out');		
+					$(el).find('.cx, .cy').removeClass('s1 s2 s3');			
+				}, 100);			
+			}, 150);
+        }
+        
+        function addToCartHandler(el){
+            var productCard = $(el).parent();
+            var position = productCard.offset();
+            var productImage = $(productCard).find('img').get(0).src;
+            var productName = $(productCard).find('.product_name').get(0).innerHTML;				
+
+            $("body").append('<div class="floating-cart"></div>');		
+            var cart = $('div.floating-cart');		
+            productCard.clone().appendTo(cart);
+            $(cart).css({'top' : position.top + 'px', "left" : position.left + 'px'}).fadeIn("slow").addClass('moveToCart');		
+            setTimeout(function(){$("body").addClass("MakeFloatingCart");}, 800);
+            setTimeout(function(){
+                $('div.floating-cart').remove();
+                $("body").removeClass("MakeFloatingCart");
+
+
+                var cartItem = "<div class='cart-item'><div class='img-wrap'><img src='"+productImage+"' alt='' /></div><span>"+productName+"</span><strong>$39</strong><div class='cart-item-border'></div><div class='delete-item'></div></div>";			
+
+                $("#cart .empty").hide();			
+                $("#cart").append(cartItem);
+                $("#checkout").fadeIn(500);
+
+                $("#cart .cart-item").last()
+                    .addClass("flash")
+                    .find(".delete-item").click(function(){
+                        $(this).parent().fadeOut(300, function(){
+                            $(this).remove();
+                            if($("#cart .cart-item").size() == 0){
+                                $("#cart .empty").fadeIn(500);
+                                $("#checkout").fadeOut(500);
+                            }
+                        })
+                    });
+                setTimeout(function(){
+                    $("#cart .cart-item").last().removeClass("flash");
+                }, 10 );
+
+            }, 1000);
+        }
+        
+        function largeAddToCartHandler(el){
+            var carousel = $(el).parent().parent().find(".carousel-container");
+
+            
+			var img = carousel.find('img').eq(carousel.attr("rel"))[0];						
+			var position = $(img).offset();	
+
+			var productName = $(el).parent().find('h4').get(0).innerHTML;				
+	
+			$("body").append('<div class="floating-cart"></div>');		
+			var cart = $('div.floating-cart');		
+			$("<img src='"+img.src+"' class='floating-image-large' />").appendTo(cart);
+			
+			$(cart).css({'top' : position.top + 'px', "left" : position.left + 'px'}).fadeIn("slow").addClass('moveToCart');		
+			setTimeout(function(){$("body").addClass("MakeFloatingCart");}, 800);
+			
+			setTimeout(function(){
+			$('div.floating-cart').remove();
+			$("body").removeClass("MakeFloatingCart");
+
+
+			var cartItem = "<div class='cart-item'><div class='img-wrap'><img src='"+img.src+"' alt='' /></div><span>"+productName+"</span><strong>$39</strong><div class='cart-item-border'></div><div class='delete-item'></div></div>";			
+
+			$("#cart .empty").hide();			
+			$("#cart").append(cartItem);
+			$("#checkout").fadeIn(500);
+			
+			$("#cart .cart-item").last()
+				.addClass("flash")
+				.find(".delete-item").click(function(){
+					$(this).parent().fadeOut(300, function(){
+						$(this).remove();
+						if($("#cart .cart-item").size() == 0){
+							$("#cart .empty").fadeIn(500);
+							$("#checkout").fadeOut(500);
+						}
+					})
+				});
+ 		    setTimeout(function(){
+				$("#cart .cart-item").last().removeClass("flash");
+			}, 10 );
+			
+		  }, 1000);
+        }
+        
+        var initCarousal = (function(){
+            var carouselSlideWidth = 315;
+            var carouselWidth = 0;	
+            var isAnimating = false;
+            var currSlide = 0;
+            
+            var carousalNext = function(e){
+                var carousel = $(e).parent().parent().find('.carousel-container');
+                carouselWidth = (3*carouselSlideWidth);
+                $(carousel).css('width', carouselWidth);
+                var currentLeft = Math.abs(parseInt($(carousel).css("left")));
+                var newLeft = currentLeft - carouselSlideWidth;
+                if(newLeft < 0  || isAnimating === true){return;}
+                $(carousel).css({'left': "-" + newLeft + "px",
+                                       "transition": "300ms ease-out"
+                                     });
+                isAnimating = true;
+                currSlide--;
+                $(carousel).attr('rel', currSlide);
+                setTimeout(function(){isAnimating = false;}, 300);
+            }
+            
+            var carousalBack = function(e){
+                var carousel = $(e).parent().parent().find('.carousel-container');
+                carouselWidth = (3*carouselSlideWidth);
+                $(carousel).css('width', carouselWidth);
+
+                var currentLeft = Math.abs(parseInt($(carousel).css("left")));
+                var newLeft = currentLeft + carouselSlideWidth;
+                if(newLeft == carouselWidth || isAnimating === true){return;}
+                $(carousel).css({'left': "-" + newLeft + "px",
+                                       "transition": "300ms ease-out"
+                                     });
+                isAnimating = true;
+                currSlide++;
+                $(carousel).attr('rel', currSlide);
+                setTimeout(function(){isAnimating = false;}, 300);	
+            }
+            return {
+                carousalBack: carousalBack,
+                carousalNext: carousalNext
+            }
+            
+        })()
+        
+        
+    </script>
+
+    	<div class="info-large">
+        	<h4>{{productName}}</h4>
+            <div class="sku">
+            	PRODUCT SKU: <strong>{{sku}}</strong>
+            </div>
+             
+            <div class="price-big">
+            	<span>$43</span> {{price}}
+            </div>
+             
+            <h3>COLORS</h3>
+            <div class="colors-large">
+                <ul>
+                    <li><a href="" style="background:#222"><span></span></a></li>
+                    <li><a href="" style="background:#6e8cd5"><span></span></a></li>
+                    <li><a href="" style="background:#f56060"><span></span></a></li>
+                    <li><a href="" style="background:#44c28d"><span></span></a></li>
+                </ul> 
+            </div>
+
+            <h3>SIZE</h3>
+            <div class="sizes-large">
+ 				<span>XS</span>
+                <span>S</span>
+                <span>M</span>
+                <span>L</span>
+                <span>XL</span>
+                <span>XXL</span>
+            </div>
+            
+            <button class="add-cart-large" onclick="largeAddToCartHandler(this)">Add To Cart</button>                          
+                         
+        </div>
+        <div class="make3D" onmouseover='onSmallMouseOverHandler(this)' onmouseout='onSmallMouseOutHandler(this)'>
+            <div class="product-front">
+                <div class="shadow"></div>
+                <img src="images/{{images[0]}}" alt="" class='img-responsive center-block'/>
+                <div class="image_overlay"></div>
+                <div class="add_to_cart" onclick="addToCartHandler(this)">Add to cart</div>
+                <div class="view_gallery" onclick='onViewGalleryHandler(this)'>View gallery</div>                
+                <div class="stats">        	
+                    <div class="stats-container">
+                        <span class="product_price">{{price}}</span>
+                        <span class="product_name">{{productName}}</span>    
+                        <p>{{type}}</p>                                            
+                        
+                        <div class="product-options">
+                        <strong>SIZES</strong>
+                        <span>XS, S, M, L, XL, XXL</span>
+                        <strong>COLORS</strong>
+                        <div class="colors">
+                            <div class="c-blue"><span></span></div>
+                            <div class="c-red"><span></span></div>
+                            <div class="c-white"><span></span></div>
+                            <div class="c-green"><span></span></div>
+                        </div>
+                    </div>                       
+                    </div>                         
+                </div>
+            </div>
+            
+            <div class="product-back">
+                <div class="shadow"></div>
+                <div class="carousel">
+                    <ul class="carousel-container">
+                        <li ng-repeat="image in images"><img src="images/{{image}}" alt="" /></li>
+                    </ul>
+                    <div class="arrows-perspective">
+                        <div class="carouselPrev" onclick="initCarousal.carousalBack(this)">
+                            <div class="y"></div>
+                            <div class="x"></div>
+                        </div>
+                        <div class="carouselNext" onclick="initCarousal.carousalNext(this)">
+                            <div class="y"></div>
+                            <div class="x"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-back" onclick="onFlipHandler(this)">
+                    <div class="cy"></div>
+                    <div class="cx"></div>
+                </div>
+            </div>	  
+        </div>	
+    </div>

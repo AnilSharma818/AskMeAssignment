@@ -1,0 +1,45 @@
+{
+  "name": "askme",
+  "description": "Ask me assignment project",
+  "homepage": "www.askme.com",
+  "repository": {
+    "type": "git",
+    "url": "https://guavus-gurgaon/gitrepos/solutions/HTML5/NR_MCA.git"
+  },
+  "private": true,
+  "main": [
+        
+  ],
+  "dependencies": {
+    "angular": "~1.4.0",
+    "jquery": "2.1.4",
+    "bootstrap": "~3.3.5"
+  },
+  "devDependencies":{
+      
+  },
+  "moduleType":[
+      
+  ],
+  "resolutions":{
+     
+  },    
+  "ignore":[
+    "doc",
+    "docs",
+    "examples",
+    "less",
+    "src",
+    "test",
+    "*.md",
+    "gulpfile.js",
+    "package.json",
+    "node_modules",
+    "bower_components",
+    "deploy.sh",
+    "tsd.json",
+    "README.md",
+    "LICENSE.txt"
+  ]
+    
+}

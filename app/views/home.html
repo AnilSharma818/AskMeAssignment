@@ -1,0 +1,81 @@
+<div class="container wrapper" ng-controller='HomeController'>
+    
+        <div class="row row-offcanvas row-offcanvas-left row-no-margin">
+            
+            <div id="sidebar" class="col-sm-4 col-md-3 sidebar-offcanvas">
+               
+                <h3>CART</h3>
+                <div class="row">
+                    <div class="cart-icon-top"></div>
+                    <div class="cart-icon-bottom"></div>
+                    <div id="checkout" class="pull-right">CHECKOUT</div>
+                </div>
+                    
+                <div id="cart">
+                    <span class="empty">No items in cart.</span>       
+                </div>
+
+                <h3>CATEGORIES</h3>
+                <div class="checklist categories">
+                    <ul>
+                        <li ng-repeat="cat in categories">
+                            <check-box label-text="cat.categoryName" ng-cloak=""/>
+                        </li>
+                    </ul>
+                </div>
+                
+                <h3>COLORS</h3>
+                <div class="checklist colors">
+                    <ul>
+                        <li><a href=""><span></span>Beige</a></li>
+                        <li><a href=""><span style="background:#222"></span>Black</a></li>
+                        <li><a href=""><span style="background:#6e8cd5"></span>Blue</a></li>
+                        <li><a href=""><span style="background:#f56060"></span>Brown</a></li>
+                        <li><a href=""><span style="background:#44c28d"></span>Green</a></li>
+                    </ul>
+
+                    <ul>
+                        <li><a href=""><span style="background:#999"></span>Grey</a></li>
+                        <li><a href=""><span style="background:#f79858"></span>Orange</a></li>
+                        <li><a href=""><span style="background:#b27ef8"></span>Purple</a></li>
+                        <li><a href=""><span style="background:#f56060"></span>Red</a></li>
+                        <li><a href=""><span style="background:#fff;border: 1px solid #e8e9eb;width:13px;height:13px;"></span>White</a></li>
+                    </ul>        
+                </div>
+
+                <h3>SIZES</h3>
+                <div class="checklist sizes">
+                    <ul>
+                        <li ng-repeat="s in sizes">
+                            <check-box label-text="s" ng-cloak=""/>
+                        </li>
+                    </ul>
+                </div>
+
+                 <h3>PRICE RANGE</h3>
+                 <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/price-range.png" alt="" />
+            </div>
+
+            <div class="col-sm-8 col-md-9">
+                <button type="button" class="btn btn-default btn-md glyphicon glyphicon-filter visible-xs" data-toggle="offcanvas" ng-click='handleOffCanvas()' style="top:5px;width:44px"></button>
+                <div id="grid-selector">
+                   
+                   <div id="grid-menu">View:
+                       <ul>           	   
+                           <li class="largeGrid" ng-click='largeGridClickHandler()'><a href=""></a></li>
+                           <li class="smallGrid" ng-click='smallGridClickHandler()'><a class="active" href=""></a></li>
+                       </ul>
+                   </div>
+Showing 1–{{products.length}} of {{products.length}} results 
+                </div>
+                
+                <div class="row center-block">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <item-preview ng-repeat="product in products" product-name="product.productName" price="product.price"
+                                      type="product.type" sku="product.sku" images="product.images" ng-cloak=""/>
+                    </div>        
+                </div>
+                
+            </div>
+        </div>
+</div>

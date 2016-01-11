@@ -1,0 +1,23 @@
+<a id="chk" href="" onclick="selectCheckBox(this)">
+    <script>
+    function selectCheckBox(e){
+        if($(e).hasClass('checked')){				
+        $(e).find('.y').removeClass('animate');	
+        setTimeout(function(){
+            $(e).find('.x').removeClass('animate');							
+        }, 50);	
+        $(e).removeClass('checked');
+        return false;
+        }
+
+        $(e).find('.x').addClass('animate');		
+        setTimeout(function(){
+            $(e).find('.y').addClass('animate');
+        }, 100);	
+        $(e).addClass('checked');
+        return false;
+    }
+</script>
+
+    <span><span class="x"></span><span class="y"></span></span>{{labelText}}
+</a>

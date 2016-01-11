@@ -1,0 +1,97 @@
+[
+    {
+        "productName": "FLUTED HEM DRESS",
+        "type": "Summer dress",
+        "categoryId": "CAT1",
+        "sku": "89343",
+        "price": "$39",
+        "colors": ["red","green","blue","black"],
+        "sizes": ["XS","S","M","L","XL","XXL"],
+        "images": ["img1.jpg", "img2.jpg", "img3.jpg"]
+    },
+    {
+        "productName": "PLEAT PRINTED DRESS",
+        "type": "Summer dress",
+        "categoryId": "CAT1",
+        "sku": "54543",
+        "price": "$49",
+        "colors": ["red","green","blue","black"],
+        "sizes": ["XS","S","M","L","XL","XXL"],
+        "images": ["img4.jpg", "img5.jpg", "img6.jpg"]
+    },
+    {
+        "productName": "FLOWY SHIRT DRESS",
+        "type": "Summer dress",
+        "categoryId": "CAT1",
+        "sku": "98934",
+        "price": "$33",
+        "colors": ["red","green","blue","black"],
+        "sizes": ["XS","S","M","L","XL","XXL"],
+        "images": ["img7.jpg", "img2.jpg", "img3.jpg"]
+    },
+    {
+        "productName": "DOUBLE LAYER DRESS",
+        "type": "Summer dress",
+        "categoryId": "CAT1",
+        "sku": "46434",
+        "price": "$59",
+        "images": ["img6.jpg", "img4.jpg", "img1.jpg"]
+    },
+    {
+        "productName": "BEAD DETAIL DRESS",
+        "type": "Summer dress",
+        "categoryId": "CAT1",
+        "sku": "64664",
+        "price": "$69",
+        "colors": ["red","green","blue","black"],
+        "sizes": ["XS","S","M","L","XL","XXL"],
+        "images": ["img3.jpg", "img2.jpg", "img7.jpg"]
+    },
+    {
+        "productName": "PLEATED DETAIL DRESS",
+        "type": "Summer dress",
+        "categoryId": "CAT1",
+        "sku": "99898",
+        "price": "$55",
+        "colors": ["red","green","blue","black"],
+        "sizes": ["XS","S","M","L","XL","XXL"],
+        "images": ["img1.jpg", "img2.jpg", "img3.jpg"]
+    },
+    {
+        "productName": "PRINTED DRESS",
+        "type": "Summer dress",
+        "categoryId": "CAT1",
+        "sku": "77866",
+        "price": "$39",
+        "colors": ["red","green","blue","black"],
+        "sizes": ["XS","S","M","L","XL","XXL"],
+        "images": ["img4.jpg", "img6.jpg", "img3.jpg"]
+    },
+    {
+        "productName": "PRINTED DRESS",
+        "categoryId": "CAT1",
+        "sku": "64645",
+        "price": "$33",
+        "colors": ["red","green","blue","black"],
+        "sizes": ["XS","S","M","L","XL","XXL"],
+        "images": ["img4.jpg", "img6.jpg", "img3.jpg"]
+    },
+    {
+        "productName": "BEAD DETAIL DRESS",
+        "type": "Summer dress",
+        "categoryId": "CAT1",
+        "sku": "64564",
+        "price": "$35",
+        "images": ["img1.jpg", "img2.jpg", "img3.jpg"]
+    },
+    {
+        "productName": "BEAD DETAIL DRESS",
+        "type": "Summer dress",
+        "categoryId": "CAT1",
+        "sku": "75644",
+        "price": "$64",
+        "colors": ["red","green","blue","black"],
+        "sizes": ["XS","S","M","L","XL","XXL"],
+        "images": ["img5.jpg", "img7.jpg", "img3.jpg"]
+    }
+ ] 
